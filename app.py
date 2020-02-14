@@ -15,6 +15,10 @@ def login():
     if u=='Juan':
         if c=='qwerty':
             return render_template('Ventas/Principal.html')
+        else:
+            return render_template('index.html')
+    else:
+        return render_template('index.html')
 
 
 if __name__=='__main__':
