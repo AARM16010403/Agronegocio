@@ -15,7 +15,8 @@ def login():
     if u=='Juan':
         if c=='qwerty':
             return render_template('Ventas/Principal.html')
-
+@app.route('/registro')
+    return render_template('registro.html')
 
 if __name__=='__main__':
     app.run(debug=True)
