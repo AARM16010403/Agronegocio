@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, url_for,session
+from flask import Flask, render_template, request, url_for, session
 from werkzeug.utils import redirect
+
+from Datoss.CultivosDAO import CultivosDAO
 import json
+
 
 app=Flask(__name__)
 app.secret_key=b'Pa$$w0rd'
@@ -19,7 +22,11 @@ def login():
             return render_template('index.html')
     else:
         return render_template('index.html')
-
+@app.route('/cultivos')
+def cultivos():
+    cdao = CultivosDAO()
+    lista = cdao.obtenerCultivos()
+    return render_template('Ventas/Cultivos.html', cultivos=lista, user=session.get('user'))
 
 if __name__=='__main__':
     app.run(debug=True)
