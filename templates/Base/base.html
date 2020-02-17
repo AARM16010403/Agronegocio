@@ -8,12 +8,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <img src="{{url_for('static',filename='imagenes/fondo.jpg')}}" id="bg">
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header" style="padding: 1vh;">
       <a class="navbar-brand" href="#">AgroNegocio</a>
     </div>
     <ul class="nav navbar-nav">
@@ -32,10 +33,22 @@
       <li><a href="#">
           <img src="{{url_for('static',filename='imagenes/RH.png')}}">     Recursos Humanos</a></li>
     </ul>
+      <ul class="nav navbar-nav navbar-right" style="padding: 1vh;">
+        <li><a href="/"><span class="glyphicon glyphicon-log-in"></span>   Salir</a></li>
+      </ul>
   </div>
 </nav>
+<div class="pull-left">
+    <span class="label label-default" style="margin-left: 15vh; font-size: 15px;position: relative; z-index: 2;">
+    Juan</span>
+</div>
+<div class="pull-right">
+<span class="label label-default" id="fyh" style="margin-right: 15vh; font-size: 15px;position: relative; z-index: 2;" ></span>
+</div>
 {% block content %}
 
 {% endblock %}
+<script src="{{url_for('static',filename='js/Base.js')}}"></script>
 </body>
+
 </html>

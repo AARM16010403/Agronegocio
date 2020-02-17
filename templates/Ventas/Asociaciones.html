@@ -1,0 +1,39 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container-fluid" style="margin-top: 15vh;">
+    <div class="row justify-content-center">
+        <div class="col-lg-2"></div>
+        <button type="button" class="btn btn-primary">Crear</button>
+        <button type="button" class="btn btn-primary">Actualizar</button>
+        <button type="button" class="btn btn-primary">Eliminar</button>
+        <button type="button" class="btn btn-primary">ASDASDASD</button>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Asociaciones</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for asociacion in asociaciones%}
+                <tr>
+                    <th scope="row">{{asociacion.id}}</th>
+                    <td>{{asociacion.nombre}}</td>
+                    <td>{{asociacion.estatus}}</td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
