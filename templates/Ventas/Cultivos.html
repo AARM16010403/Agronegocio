@@ -1,0 +1,36 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container" style="margin-top: 10vh;">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="padding: 10px 0px;">
+            <a href="/nuevoCultivo"><button type="button" class="btn btn-primary pull-right" style="padding: 5px 0px;">Agregar Cultivo</button></a>Cultivos
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Costo de asesoria</th>
+
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for cultivo in cultivos%}
+                <tr>
+                    <th scope="row">{{cultivo.id}}</th>
+                    <td>{{cultivo.nombre}}</td>
+                    <td>{{cultivo.costoAsesoria}}</td>
+
+                    <td><a href="/consultarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
+                    <td><a href="/eliminarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
