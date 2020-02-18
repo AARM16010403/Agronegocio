@@ -15,21 +15,22 @@
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header" style="padding: 1vh;">
-      <a class="navbar-brand" href="#">AgroNegocio</a>
+      <a class="navbar-brand" href="/ventas">AgroNegocio</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">
-          <img src="{{url_for('static',filename='imagenes/ventas.png')}}">     Ventas</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <img src="{{url_for('static',filename='imagenes/compras.png')}}">     Compras
+      <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="/ventas">
+            <img src="{{url_for('static',filename='imagenes/ventas.png')}}">     Ventas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li><a href="/cultivos">Cultivos</a></li>
+          <li><a href="/unidades">Unidades de Transporte</a></li>
+          <li><a href="/clientes">Clientes</a></li>
+            <li><a href="/asociacion">Asociaciones</a></li>
         </ul>
       </li>
+        <li><a href="#">
+          <img src="{{url_for('static',filename='imagenes/compras.png')}}">     Compras</a></li>
       <li><a href="#">
           <img src="{{url_for('static',filename='imagenes/RH.png')}}">     Recursos Humanos</a></li>
     </ul>
