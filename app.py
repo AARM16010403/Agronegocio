@@ -14,6 +14,7 @@ from Modelo.Cliente import Cliente
 from Modelo.Cultivo import Cultivo
 from Modelo.UnidadTrans import UnidadTrans
 
+
 app=Flask(__name__)
 app.secret_key=b'Pa$$w0rd'
 
