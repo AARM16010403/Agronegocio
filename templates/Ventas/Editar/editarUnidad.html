@@ -1,0 +1,62 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-4 col-xs-12"></div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+		<form class="form-container" action="/editarUnidad" method="post">
+			<center>
+			<img src="{{url_for('static',filename='imagenes/truck.png')}}">
+			<h4>Editar Unidad de Transporte:</h4>
+			</center>
+		  	<div class="form-group">
+		    	<label style="color: white; font-weight: bold; background: black;">ID:</label>
+<<<<<<< HEAD
+		    	<input type="number" class="form-control" placeholder="Id" required name="id" readonly value="{{unidad.idUnidadTransporte}}">
+		  </div>
+		  <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Placas:</label>
+		    <input type="text" class="form-control" placeholder="Placa" required name="placa" maxlength="10" value="{{unidad.placas}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Marca:</label>
+		    <input type="text" class="form-control" placeholder="Marca" required name="marca" maxlength="80" value="{{unidad.marca}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Modelo:</label>
+		    <input type="text" class="form-control" placeholder="Modelo" required name="modelo" maxlength="80" value="{{unidad.modelo}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Año:</label>
+		    <input type="number" class="form-control" placeholder="Año" required name="anio" maxlength="4" value="{{unidad.anio}}">
+=======
+		    	<input type="number" class="form-control" placeholder="Id" required name="id" readonly value="{{unidad.id}}">
+		  </div>
+		  <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Placas:</label>
+		    <input type="text" class="form-control" placeholder="Placa" required name="placa" value="{{unidad.placas}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Marca:</label>
+		    <input type="text" class="form-control" placeholder="Marca" required name="marca" value="{{unidad.marca}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Modelo:</label>
+		    <input type="text" class="form-control" placeholder="Modelo" required name="modelo" value="{{unidad.modelo}}">
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Año:</label>
+		    <input type="number" class="form-control" placeholder="Año" required name="anio" value="{{unidad.anio}}">
+>>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+		  </div>
+            <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Capacidad:</label>
+		    <input type="number" class="form-control" placeholder="Capacidad" required name="capacidad" value="{{unidad.capacidad}}">
+		  </div>
+		  <button type="submit" class="btn btn-success btn-block">Editar</button>
+		</form>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12"></div>
+	</div>
+</div>
+{% endblock %}

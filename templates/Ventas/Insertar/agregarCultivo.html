@@ -1,0 +1,30 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-4 col-xs-12"></div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+		<form class="form-container" action="/agregarCultivo" method="post">
+			<center>
+			<img src="{{url_for('static',filename='imagenes/cultivos.png')}}">
+			<h4>Agregar cultivo:</h4>
+			</center>
+		  	<div class="form-group">
+		    	<label style="color: white; font-weight: bold; background: black;">ID:</label>
+		    	<input type="number" class="form-control" placeholder="Id" required name="id" readonly value="{{id}}">
+		  </div>
+		  <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Nombre:</label>
+		    <input type="text" class="form-control" placeholder="Nombre" required name="nombre" maxlength="100">
+		  </div>
+		  <div class="form-group">
+		    <label style="color: white; font-weight: bold; background: black;">Costo Asesoria:</label>
+		    <input type="number" class="form-control" placeholder="Costo asesoria" required name="costo">
+		  </div>
+		  <button type="submit" class="btn btn-success btn-block">Agregar</button>
+		</form>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12"></div>
+	</div>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
 {%extends 'Base/base.html' %}
 {%block content%}
-<div class="container-fluid" style="margin-top: 15vh;">
-<div class="row justify-content-center">
+<div class="container-fluid" style="margin-top: 10vh;">
+    <div class="row justify-content-center">
         <div class="col-lg-2"></div>
         <div class="panel-group">
             <div class="col-lg-2">
@@ -43,5 +43,50 @@
         </div>
     <div class="col-lg-2"></div>
     </div>
+</div>
+<div class="container-fluid" style="margin-top: 7vh;">
+    <div class="row justify-content-center">
+        <div class="col-lg-2"></div>
+        <div class="panel-group">
+            <div class="col-lg-2">
+                <a href="/cultivos">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">Ofertas</div>
+                        <div class="panel-body well well-sm text-center"><img
+                                src="{{url_for('static',filename='imagenes/plant.png')}}"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="/miembros">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">Miembros</div>
+                        <div class="panel-body well well-sm text-center"><img
+                                src="{{url_for('static',filename='imagenes/member.png')}}"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="/clientes">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">Clientes</div>
+                        <div class="panel-body well well-sm text-center"><img
+                                src="{{url_for('static',filename='imagenes/client.png')}}"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="/asociacion">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">Asociaciones</div>
+                        <div class="panel-body well well-sm text-center"><img
+                                src="{{url_for('static',filename='imagenes/deal.png')}}"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    <div class="col-lg-2"></div>
+    </div>
+
 </div>
 {% endblock %}

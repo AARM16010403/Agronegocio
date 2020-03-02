@@ -8,28 +8,37 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/js/bootstrap-datetimepicker.min.js" integrity="sha256-SS5UPPXAM4HWVoFCt0tsx90VWhRf7cStU5kabObE8cw=" crossorigin="anonymous"></script>
 </head>
 <body>
 <img src="{{url_for('static',filename='imagenes/fondo.jpg')}}" id="bg">
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header" style="padding: 1vh;">
-      <a class="navbar-brand" href="#">AgroNegocio</a>
+      <a class="navbar-brand" href="/ventas">AgroNegocio</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">
-          <img src="{{url_for('static',filename='imagenes/ventas.png')}}">     Ventas</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <img src="{{url_for('static',filename='imagenes/compras.png')}}">     Compras
+      <li class="dropdown active">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="/ventas">
+            <img src="{{url_for('static',filename='imagenes/ventas.png')}}">     Ventas
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li><a href="/cultivos">Cultivos</a></li>
+          <li><a href="/unidades">Unidades de Transporte</a></li>
+          <li><a href="/clientes">Clientes</a></li>
+            <li><a href="/asociacion">Asociaciones</a></li>
         </ul>
       </li>
+        <li><a href="#">
+          <img src="{{url_for('static',filename='imagenes/compras.png')}}">     Compras</a></li>
       <li><a href="#">
           <img src="{{url_for('static',filename='imagenes/RH.png')}}">     Recursos Humanos</a></li>
     </ul>
@@ -40,7 +49,7 @@
 </nav>
 <div class="pull-left">
     <span class="label label-default" style="margin-left: 15vh; font-size: 15px;position: relative; z-index: 2;">
-    Juan</span>
+    {{user}}</span>
 </div>
 <div class="pull-right">
 <span class="label label-default" id="fyh" style="margin-right: 15vh; font-size: 15px;position: relative; z-index: 2;" ></span>
@@ -50,4 +59,5 @@
 {% endblock %}
 <script src="{{url_for('static',filename='js/Base.js')}}"></script>
 </body>
+
 </html>

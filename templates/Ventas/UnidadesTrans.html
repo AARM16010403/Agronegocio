@@ -1,0 +1,40 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container" style="margin-top: 10vh;">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="padding: 10px 0px;">
+            <a href="/nuevaUnidad"><button type="button" class="btn btn-primary pull-right" style="padding: 5px 0px;">Agregar Transporte</button></a>Unidades de Transporte
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Placas</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Anio</th>
+                    <th scope="col">Capacidad</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for unidad in unidades%}
+                <tr>
+                    <th scope="row">{{unidad.id}}</th>
+                    <td>{{unidad.placa}}</td>
+                    <td>{{unidad.marca}}</td>
+                    <td>{{unidad.modelo}}</td>
+                    <td>{{unidad.anio}}</td>
+                    <td>{{unidad.capacidad}}</td>
+                    <td><a href="/consultarUnidad/{{unidad.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
+                    <td><a href="/eliminarUnidad/{{unidad.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
