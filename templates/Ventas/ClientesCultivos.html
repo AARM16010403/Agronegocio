@@ -1,0 +1,38 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container" style="margin-top: 10vh;">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="padding: 10px 0px;">
+            <a href="/nuevoClienteCultivo"><button type="button" class="btn btn-primary pull-right" style="padding: 5px 0px;">Agregar Cultivo de Cliente</button></a>Clientes
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Extension</th>
+                    <th scope="col">Ubicacion</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Cultivo</th>
+                    <th scope="col">Ciudad</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for clientecultivo in clientescultivos%}
+                <tr>
+                    <th scope="row">{{clientecultivo.id}}</th>
+                    <td>{{clientecultivo.extension}}</td>
+                    <td>{{clientecultivo.ubicacion}}</td>
+                    <td>{{clientecultivo.cliente}}</td>
+                    <td>{{clientecultivo.cultivo}}</td>
+                    <td>{{clientecultivo.ciudad}}</td>
+                    <td><a href="/consultarClienteCultivo/{{clientecultivo.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
+                    <td><a href="/eliminarClienteCultivo/{{clientecultivo.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

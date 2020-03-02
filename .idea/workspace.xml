@@ -9,8 +9,11 @@
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/templates/Ventas/Principal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Ventas/Principal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -172,7 +175,10 @@
     <MESSAGE value="2" />
     <MESSAGE value="Tablas" />
     <option name="LAST_COMMIT_MESSAGE" value="Tablas" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -184,7 +190,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
   </component>
 </project>

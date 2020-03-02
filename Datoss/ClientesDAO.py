@@ -18,7 +18,10 @@ class ClientesDAO:
             cursor.execute(sql);
             data = cursor.fetchall()
             for dato in data:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
                 sql = "select nombre from RH.Ciudades where idCiudad=(?)"
                 Values = [dato[10]]
                 cursor.execute(sql,Values)
@@ -26,10 +29,13 @@ class ClientesDAO:
                 dato[10] = row[0]
                 fila = {"id":dato[0],"nombre":dato[1],"razon":dato[2],"limite":dato[3],"direccion":dato[4],
                         "codigo":dato[5],"rfc":dato[6],"telefono":dato[7],"email":dato[8],"tipo":dato[9],"ciudad":dato[10]}
+<<<<<<< Updated upstream
 =======
                 fila = {"id":dato[0],"nombre":dato[1],"razon":dato[2],"limite":dato[3],"direccion":dato[4],
                         "codigo":dato[5],"rfc":dato[6],"tel":dato[7],"email":dato[8],"tipo":dato[9],"ciudad":dato[10]}
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
                 lista.append(fila)
             cursor.close()
             self.db.close()
@@ -41,11 +47,15 @@ class ClientesDAO:
               'rfc,telefono,email,tipo,idCiudad,estatus) values (?,?,?,?,?,?,?,?,?,?,?,?)'
         try:
             Values = [cliente.idCliente,cliente.nombre,cliente.razonSocial,cliente.limiteCredito,cliente.direccion,
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                       cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad,cliente.estatus]
 =======
                       cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad]
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+                      cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad,cliente.estatus]
+>>>>>>> Stashed changes
             cursor=self.db.cursor()
             cursor.execute(sql,Values)
             self.db.commit()

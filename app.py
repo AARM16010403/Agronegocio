@@ -13,10 +13,14 @@ import pyodbc
 from Modelo.Asociacion import Asociacion
 from Modelo.Cliente import Cliente
 from Modelo.Cultivo import Cultivo
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 from Modelo.Miembro import Miembro
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+from Modelo.Miembro import Miembro
+>>>>>>> Stashed changes
 from Modelo.UnidadTrans import UnidadTrans
 
 app=Flask(__name__)
@@ -49,11 +53,15 @@ def login():
         return render_template('index.html')
 @app.route('/ventas')
 def ventas():
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     return render_template('Ventas/Principal.html',user=session.get('user'))
 =======
     return render_template('Ventas/Principal.html')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    return render_template('Ventas/Principal.html',user=session.get('user'))
+>>>>>>> Stashed changes
 @app.route('/cultivos')
 def cultivos():
     cdao = CultivosDAO()
@@ -143,11 +151,15 @@ def consultarUnidad(id):
 @app.route('/editarUnidad',methods=['POST'])
 def actualizarUnidad():
     u = UnidadTrans(request.form['id'],request.form['placa'],request.form['marca'],request.form['modelo']
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     ,request.form['anio'],request.form['capacidad'],'A')
 =======
                          ,request.form['anio'],request.form['capacidad'],'A')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+                    ,request.form['anio'],request.form['capacidad'],'A')
+>>>>>>> Stashed changes
     udao = UnidadesTransDAO()
     udao.actualizar(u)
     return redirect(url_for('unidades'))
@@ -195,11 +207,15 @@ def consultarCliente(id):
     lista = []
     sql = 'select idCiudad,nombre from RH.Ciudades'
     cursor = db.cursor()
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     cursor.execute(sql)
 =======
     cursor.execute(sql);
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    cursor.execute(sql)
+>>>>>>> Stashed changes
     data = cursor.fetchall()
     for dato in data:
         fila = {"id": dato[0], "nombre": dato[1]}
@@ -220,7 +236,10 @@ def eliminarCliente(id):
     cdao = ClientesDAO()
     cdao.eliminar(id)
     return redirect(url_for('clientes'))
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 @app.route('/miembros')
 def miembros():
     mdao = MiembrosDAO()
@@ -301,8 +320,16 @@ def eliminarMiembro(idC,idA):
     mdao = MiembrosDAO()
     mdao.eliminar(idC,idA)
     return redirect(url_for('miembros'))
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+@app.route('/clientesCultivos')
+def clientesCultivos():
+    ccdao = ClientesCultivosDAO()
+    lista = ccdao.obtenerClientesCultivos()
+    return render_template('Ventas/ClientesCultivos.html', clientescultivos=lista, user=session.get('user'))
+>>>>>>> Stashed changes
 
 if __name__=='__main__':
     app.run(debug=True)

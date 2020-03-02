@@ -82,8 +82,12 @@ class AsociacionesDAO:
             cursor.close()
             self.db.close()
         except pyodbc.Error as e:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             print(e)
 =======
             print(e)
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+            print(e)
+>>>>>>> Stashed changes

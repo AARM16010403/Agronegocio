@@ -1,27 +1,19 @@
 import pyodbc
 from Datoss.Conexion import Conexion
-from Modelo.Cultivo import Cultivo
+from Modelo.ClienteCultivo import ClienteCultivo
 
 
-class CultivosDAO:
+class ClientesCultivosDAO:
     db = None
     def __init__(self):
         conx = Conexion()
         self.db = conx.getDB()
-    def obtenerCultivos(self):
-        sql = "select idCultivo,nombre,costoAsesoria,estatus from Ventas.Cultivos where estatus='A'"
+    def obtenerClientesCultivos(self):
+        sql = "select idClienteCultivo,extension,ubicacion,estatus from Ventas.Cultivos where estatus='A'"
         lista = []
         try:
             cursor=self.db.cursor()
-<<<<<<< Updated upstream
-<<<<<<< HEAD
             cursor.execute(sql)
-=======
-            cursor.execute(sql);
->>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
-=======
-            cursor.execute(sql)
->>>>>>> Stashed changes
             data = cursor.fetchall()
             for dato in data:
                 fila = {"id":dato[0],"nombre":dato[1],"costoAsesoria":dato[2],"estatus":dato[3]}
@@ -31,7 +23,7 @@ class CultivosDAO:
         except pyodbc.Error as error:
             print(error)
         return lista
-    def insertarCultivo(self,cultivo):
+    def insertarClienteCultivo(self,cultivo):
         sql = 'insert Ventas.Cultivos (idCultivo,nombre,costoAsesoria,estatus) values (?,?,?,?)'
         try:
             Values = [cultivo.idCultivo,cultivo.nombre,cultivo.costoAsesoria,cultivo.estatus]
@@ -90,12 +82,4 @@ class CultivosDAO:
             cursor.close()
             self.db.close()
         except pyodbc.Error as e:
-<<<<<<< Updated upstream
-<<<<<<< HEAD
             print(e)
-=======
-            print(e)
->>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
-=======
-            print(e)
->>>>>>> Stashed changes

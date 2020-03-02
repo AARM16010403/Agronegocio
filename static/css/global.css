@@ -1,6 +1,7 @@
 #bg{background: no-repeat; position: absolute; width: 100%; height: 100%; z-index: -1;}
 
 .color{color: white; font-weight: bold; background: black;}
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 
@@ -9,3 +10,5 @@
 -moz-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
 box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);}
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
