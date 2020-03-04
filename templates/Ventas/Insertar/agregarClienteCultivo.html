@@ -1,0 +1,66 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-sm-3 col-xs-4"></div>
+        <div class="col-md-6 col-sm-6 col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/agregarClienteCultivo" class="form-container" method="post">
+                        <center>
+                            <img src="{{url_for('static',filename='imagenes/seed.png')}}">
+                            <h4>Agregar Cultivo de cliente:</h4>
+                        </center>
+                        <div class="form-group">
+		    	<label style="color: white; font-weight: bold; background: black;">ID:</label>
+		    	<input type="number" class="form-control" placeholder="Id" required name="id" readonly value="{{id}}">
+		                </div>
+                        <div class="form-group">
+                            <label style="color: white; font-weight: bold; background: black;">Cliente:</label>
+                            <select required name="idCliente">
+                                {%for cliente in clientes%}
+                                <option value="{{cliente.id}}">
+                                    {{cliente.nombre}}
+                                </option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: white; font-weight: bold; background: black;">Asociacion:</label>
+                            <select required name="idAsociacion">
+                                {%for asociacion in asociaciones%}
+                                <option value="{{asociacion.id}}">
+                                    {{asociacion.nombre}}
+                                </option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: white; font-weight: bold; background: black;">Fecha
+                                incorporacion:</label>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" required name='fechaIncorporacion'/>
+                                        <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                                </script>
+
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit" style="margin-top: 1vh">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-4"></div>
+    </div>
+</div>
+{% endblock %}

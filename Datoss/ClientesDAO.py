@@ -19,7 +19,10 @@ class ClientesDAO:
             data = cursor.fetchall()
             for dato in data:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                 sql = "select nombre from RH.Ciudades where idCiudad=(?)"
@@ -30,10 +33,13 @@ class ClientesDAO:
                 fila = {"id":dato[0],"nombre":dato[1],"razon":dato[2],"limite":dato[3],"direccion":dato[4],
                         "codigo":dato[5],"rfc":dato[6],"telefono":dato[7],"email":dato[8],"tipo":dato[9],"ciudad":dato[10]}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
                 fila = {"id":dato[0],"nombre":dato[1],"razon":dato[2],"limite":dato[3],"direccion":dato[4],
                         "codigo":dato[5],"rfc":dato[6],"tel":dato[7],"email":dato[8],"tipo":dato[9],"ciudad":dato[10]}
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                 lista.append(fila)
@@ -48,11 +54,15 @@ class ClientesDAO:
         try:
             Values = [cliente.idCliente,cliente.nombre,cliente.razonSocial,cliente.limiteCredito,cliente.direccion,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                       cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad,cliente.estatus]
 =======
                       cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad]
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+                      cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad,cliente.estatus]
+>>>>>>> Stashed changes
 =======
                       cliente.codigoPostal,cliente.rfc,cliente.telefono,cliente.email,cliente.tipo,cliente.idCiudad,cliente.estatus]
 >>>>>>> Stashed changes

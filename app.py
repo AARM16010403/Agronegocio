@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, session
 from werkzeug.utils import redirect
 
+from Datoss.ClientesCultivosDAO import ClientesCultivosDAO
 from Datoss.ClientesDAO import ClientesDAO
 from Datoss.Conexion import Conexion
 from Datoss.CultivosDAO import CultivosDAO
@@ -12,6 +13,7 @@ import pyodbc
 
 from Modelo.Asociacion import Asociacion
 from Modelo.Cliente import Cliente
+<<<<<<< Updated upstream
 from Modelo.Cultivo import Cultivo
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -19,6 +21,11 @@ from Modelo.Miembro import Miembro
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
 =======
+from Modelo.Miembro import Miembro
+>>>>>>> Stashed changes
+=======
+from Modelo.ClienteCultivo import ClienteCultivo
+from Modelo.Cultivo import Cultivo
 from Modelo.Miembro import Miembro
 >>>>>>> Stashed changes
 from Modelo.UnidadTrans import UnidadTrans
@@ -54,11 +61,15 @@ def login():
 @app.route('/ventas')
 def ventas():
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     return render_template('Ventas/Principal.html',user=session.get('user'))
 =======
     return render_template('Ventas/Principal.html')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    return render_template('Ventas/Principal.html',user=session.get('user'))
+>>>>>>> Stashed changes
 =======
     return render_template('Ventas/Principal.html',user=session.get('user'))
 >>>>>>> Stashed changes
@@ -152,11 +163,15 @@ def consultarUnidad(id):
 def actualizarUnidad():
     u = UnidadTrans(request.form['id'],request.form['placa'],request.form['marca'],request.form['modelo']
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     ,request.form['anio'],request.form['capacidad'],'A')
 =======
                          ,request.form['anio'],request.form['capacidad'],'A')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+                    ,request.form['anio'],request.form['capacidad'],'A')
+>>>>>>> Stashed changes
 =======
                     ,request.form['anio'],request.form['capacidad'],'A')
 >>>>>>> Stashed changes
@@ -208,11 +223,15 @@ def consultarCliente(id):
     sql = 'select idCiudad,nombre from RH.Ciudades'
     cursor = db.cursor()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     cursor.execute(sql)
 =======
     cursor.execute(sql);
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    cursor.execute(sql)
+>>>>>>> Stashed changes
 =======
     cursor.execute(sql)
 >>>>>>> Stashed changes
@@ -237,7 +256,10 @@ def eliminarCliente(id):
     cdao.eliminar(id)
     return redirect(url_for('clientes'))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 @app.route('/miembros')
@@ -321,14 +343,101 @@ def eliminarMiembro(idC,idA):
     mdao.eliminar(idC,idA)
     return redirect(url_for('miembros'))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
 =======
+=======
+>>>>>>> Stashed changes
 @app.route('/clientesCultivos')
 def clientesCultivos():
     ccdao = ClientesCultivosDAO()
     lista = ccdao.obtenerClientesCultivos()
     return render_template('Ventas/ClientesCultivos.html', clientescultivos=lista, user=session.get('user'))
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+@app.route('/nuevoClienteCultivo')
+def nuevoClienteCultivo():
+    ccdao = ClientesCultivosDAO()
+    conx = Conexion()
+    db = conx.getDB()
+    lista1 = []
+    lista2 = []
+    lista3 = []
+    sql = "select idCliente,nombre from Ventas.Clientes where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista1.append(fila)
+    sql = "select idCultivo,nombre from Ventas.Cultivos where estatus='A'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista2.append(fila)
+    sql = "select idCiudad,nombre from RH.Ciudades"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista3.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Insertar/agregarClienteCultivo.html',clientes=lista1,cultivos=lista2,ciudades=lista3, user=session.get('user'))
+@app.route('/agregarClienteCultivo',methods=['POST'])
+def agregarClienteCultivo():
+    cc = ClienteCultivo(request.form['idClienteCultivo'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+                request.form['idCultivo'],request.form['idCiudad'],'A')
+    ccdao = ClientesCultivosDAO()
+    ccdao.insertarClienteCultivo(cc)
+    return redirect(url_for('clientesCultivos'))
+@app.route('/consultarClienteCultivo/<id>/<idC>/<idCu>/<idCi>')
+def consultarMiembro(id,idC,idCu,idCi):
+    ccdao = ClientesCultivosDAO()
+    cc = ccdao.consultaIndividual(id)
+    conx = Conexion()
+    db = conx.getDB()
+    lista1 = []
+    lista2 = []
+    lista3 = []
+    sql = "select idCliente,nombre from Ventas.Clientes where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": dato[0], "nombre": dato[1]}
+        lista1.append(fila)
+    sql = "select idCultivo,nombre from Ventas.Cultivos where estatus='A'"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": dato[0], "nombre": dato[1]}
+        lista2.append(fila)
+    sql = "select idCiudad,nombre from RH.Ciudades"
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": dato[0], "nombre": dato[1]}
+        lista3.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Editar/editarClienteCultivo.html',clienteCultivo=cc,clientes=lista1,cultivos=lista2,ciudades=lista3,
+                           idC=idC,idCu=idCu,idCi=idCi,user=session.get('user'))
+@app.route('/editarClienteCultivo',methods=['POST'])
+def editarClienteCultivo():
+    cc = ClienteCultivo(request.form['idClienteCultivo'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+                request.form['idCultivo'],request.form['idCiudad'],'A')
+    ccdao = ClientesCultivosDAO()
+    ccdao.actualizar(cc)
+    return redirect(url_for('clientesCultivos'))
+@app.route('/eliminarClienteCultivo/<id>')
+def eliminarClienteCultivo(id):
+    ccdao = ClientesCultivosDAO()
+    ccdao.eliminar(id)
+    return redirect(url_for('clientesCultivos'))
 >>>>>>> Stashed changes
 
 if __name__=='__main__':

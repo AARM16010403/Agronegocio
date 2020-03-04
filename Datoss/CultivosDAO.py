@@ -14,11 +14,15 @@ class CultivosDAO:
         try:
             cursor=self.db.cursor()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             cursor.execute(sql)
 =======
             cursor.execute(sql);
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+            cursor.execute(sql)
+>>>>>>> Stashed changes
 =======
             cursor.execute(sql)
 >>>>>>> Stashed changes
@@ -91,11 +95,15 @@ class CultivosDAO:
             self.db.close()
         except pyodbc.Error as e:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             print(e)
 =======
             print(e)
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+            print(e)
+>>>>>>> Stashed changes
 =======
             print(e)
 >>>>>>> Stashed changes
