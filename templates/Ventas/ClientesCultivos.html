@@ -15,11 +15,8 @@
                     <th scope="col">Cliente</th>
                     <th scope="col">Cultivo</th>
                     <th scope="col">Ciudad</th>
-<<<<<<< Updated upstream
-=======
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
->>>>>>> Stashed changes
                 </tr>
                 </thead>
                 <tbody>
@@ -31,17 +28,8 @@
                     <td>{{clientecultivo.cliente}}</td>
                     <td>{{clientecultivo.cultivo}}</td>
                     <td>{{clientecultivo.ciudad}}</td>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    <td><a href="/consultarClienteCultivo/{{clientecultivo.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
-=======
                     <td><a href="/consultarClienteCultivo/{{clientecultivo.id}}/{{clientecultivo.idC}}/{{clientecultivo.idCu}}/{{clientecultivo.idCi}}">
                         <img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
->>>>>>> Stashed changes
-=======
-                    <td><a href="/consultarClienteCultivo/{{clientecultivo.id}}/{{clientecultivo.idC}}/{{clientecultivo.idCu}}/{{clientecultivo.idCi}}">
-                        <img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
->>>>>>> Stashed changes
                     <td><a href="/eliminarClienteCultivo/{{clientecultivo.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
                 </tr>
                 {%endfor%}

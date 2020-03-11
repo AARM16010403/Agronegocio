@@ -13,20 +13,4 @@ class UnidadTrans:
         self.modelo=modelo
         self.anio=anio
         self.capacidad=capacidad
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
         self.estatus=estatus
-=======
-        self.estatus=estatus
->>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
-=======
-        self.estatus=estatus
->>>>>>> Stashed changes
-=======
-        self.estatus=estatus
->>>>>>> Stashed changes
-=======
-        self.estatus=estatus
->>>>>>> Stashed changes

@@ -64,23 +64,7 @@ class UnidadesTransDAO:
         return u
     def actualizar(self,unidad):
         sql = "update Ventas.UnidadesTransporte set placas=(?), marca=(?), modelo=(?), anio=(?), capacidad=(?) " \
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
               " where idUnidadTransporte=(?)"
-=======
-              "where idUnidadTransporte=(?)"
->>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
-=======
-              " where idUnidadTransporte=(?)"
->>>>>>> Stashed changes
-=======
-              " where idUnidadTransporte=(?)"
->>>>>>> Stashed changes
-=======
-              " where idUnidadTransporte=(?)"
->>>>>>> Stashed changes
         try:
             cursor = self.db.cursor()
             Values = [unidad.placas,unidad.marca,unidad.modelo,unidad.anio,unidad.capacidad,unidad.idUnidadTransporte]
