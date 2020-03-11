@@ -7,12 +7,18 @@ from Datoss.Conexion import Conexion
 from Datoss.CultivosDAO import CultivosDAO
 from Datoss.AsociacionesDAO import AsociacionesDAO
 from Datoss.MiembrosDAO import MiembrosDAO
+<<<<<<< Updated upstream
+=======
+from Datoss.OfertasAsociacionDAO import OfertasAsociacionDAO
+from Datoss.OfertasDAO import OfertasDAO
+>>>>>>> Stashed changes
 from Datoss.UnidadesTransDAO import UnidadesTransDAO
 import json
 import pyodbc
 
 from Modelo.Asociacion import Asociacion
 from Modelo.Cliente import Cliente
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 from Modelo.Cultivo import Cultivo
 <<<<<<< Updated upstream
@@ -28,6 +34,13 @@ from Modelo.ClienteCultivo import ClienteCultivo
 from Modelo.Cultivo import Cultivo
 from Modelo.Miembro import Miembro
 >>>>>>> Stashed changes
+=======
+from Modelo.ClienteCultivo import ClienteCultivo
+from Modelo.Cultivo import Cultivo
+from Modelo.Miembro import Miembro
+from Modelo.Oferta import Oferta
+from Modelo.OfertaAsociacion import OfertaAsociacion
+>>>>>>> Stashed changes
 from Modelo.UnidadTrans import UnidadTrans
 
 app=Flask(__name__)
@@ -41,6 +54,7 @@ def login():
     u=request.form['usuario']
     c=request.form['contra']
     conx = Conexion()
+<<<<<<< Updated upstream
     db = conx.getDB()
     sql = 'select nombre,contrasenia from Seguridad.Usuarios'
     cursor = db.cursor()
@@ -56,10 +70,32 @@ def login():
     if entrar:
         session['user'] = u
         return render_template('Ventas/Principal.html',user=session.get('user'))
+=======
+    res = conx.verificarUsuario(u,c)
+    if res:
+        db = conx.getDB()
+        sql = 'select nombre,contrasenia from Seguridad.Usuarios'
+        cursor = db.cursor()
+        cursor.execute(sql);
+        data = cursor.fetchall()
+        entrar = False
+        for dato in data:
+            if dato[0] == u:
+                if dato[1] == c:
+                    entrar = True
+        cursor.close()
+        db.close()
+        if entrar:
+            session['user'] = u
+            return render_template('Ventas/Principal.html',user=session.get('user'))
+        else:
+            return render_template('index.html')
+>>>>>>> Stashed changes
     else:
         return render_template('index.html')
 @app.route('/ventas')
 def ventas():
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -67,6 +103,9 @@ def ventas():
 =======
     return render_template('Ventas/Principal.html')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    return render_template('Ventas/Principal.html',user=session.get('user'))
+>>>>>>> Stashed changes
 =======
     return render_template('Ventas/Principal.html',user=session.get('user'))
 >>>>>>> Stashed changes
@@ -164,11 +203,15 @@ def actualizarUnidad():
     u = UnidadTrans(request.form['id'],request.form['placa'],request.form['marca'],request.form['modelo']
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
                     ,request.form['anio'],request.form['capacidad'],'A')
 =======
                          ,request.form['anio'],request.form['capacidad'],'A')
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+                    ,request.form['anio'],request.form['capacidad'],'A')
+>>>>>>> Stashed changes
 =======
                     ,request.form['anio'],request.form['capacidad'],'A')
 >>>>>>> Stashed changes
@@ -224,11 +267,15 @@ def consultarCliente(id):
     cursor = db.cursor()
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     cursor.execute(sql)
 =======
     cursor.execute(sql);
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+    cursor.execute(sql)
+>>>>>>> Stashed changes
 =======
     cursor.execute(sql)
 >>>>>>> Stashed changes
@@ -257,7 +304,10 @@ def eliminarCliente(id):
     return redirect(url_for('clientes'))
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -344,9 +394,12 @@ def eliminarMiembro(idC,idA):
     return redirect(url_for('miembros'))
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 @app.route('/clientesCultivos')
@@ -355,11 +408,18 @@ def clientesCultivos():
     lista = ccdao.obtenerClientesCultivos()
     return render_template('Ventas/ClientesCultivos.html', clientescultivos=lista, user=session.get('user'))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 @app.route('/nuevoClienteCultivo')
 def nuevoClienteCultivo():
     ccdao = ClientesCultivosDAO()
+=======
+@app.route('/nuevoClienteCultivo')
+def nuevoClienteCultivo():
+    ccdao = ClientesCultivosDAO()
+    id = ccdao.ultimoID()
+>>>>>>> Stashed changes
     conx = Conexion()
     db = conx.getDB()
     lista1 = []
@@ -386,16 +446,27 @@ def nuevoClienteCultivo():
         lista3.append(fila)
     cursor.close()
     db.close()
+<<<<<<< Updated upstream
     return render_template('Ventas/Insertar/agregarClienteCultivo.html',clientes=lista1,cultivos=lista2,ciudades=lista3, user=session.get('user'))
 @app.route('/agregarClienteCultivo',methods=['POST'])
 def agregarClienteCultivo():
     cc = ClienteCultivo(request.form['idClienteCultivo'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+=======
+    return render_template('Ventas/Insertar/agregarClienteCultivo.html',id=id,clientes=lista1,cultivos=lista2,ciudades=lista3, user=session.get('user'))
+@app.route('/agregarClienteCultivo',methods=['POST'])
+def agregarClienteCultivo():
+    cc = ClienteCultivo(request.form['id'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+>>>>>>> Stashed changes
                 request.form['idCultivo'],request.form['idCiudad'],'A')
     ccdao = ClientesCultivosDAO()
     ccdao.insertarClienteCultivo(cc)
     return redirect(url_for('clientesCultivos'))
 @app.route('/consultarClienteCultivo/<id>/<idC>/<idCu>/<idCi>')
+<<<<<<< Updated upstream
 def consultarMiembro(id,idC,idCu,idCi):
+=======
+def consultarClienteCultivo(id,idC,idCu,idCi):
+>>>>>>> Stashed changes
     ccdao = ClientesCultivosDAO()
     cc = ccdao.consultaIndividual(id)
     conx = Conexion()
@@ -408,19 +479,31 @@ def consultarMiembro(id,idC,idCu,idCi):
     cursor.execute(sql)
     data = cursor.fetchall()
     for dato in data:
+<<<<<<< Updated upstream
         fila = {"id": dato[0], "nombre": dato[1]}
+=======
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+>>>>>>> Stashed changes
         lista1.append(fila)
     sql = "select idCultivo,nombre from Ventas.Cultivos where estatus='A'"
     cursor.execute(sql)
     data = cursor.fetchall()
     for dato in data:
+<<<<<<< Updated upstream
         fila = {"id": dato[0], "nombre": dato[1]}
+=======
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+>>>>>>> Stashed changes
         lista2.append(fila)
     sql = "select idCiudad,nombre from RH.Ciudades"
     cursor.execute(sql)
     data = cursor.fetchall()
     for dato in data:
+<<<<<<< Updated upstream
         fila = {"id": dato[0], "nombre": dato[1]}
+=======
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+>>>>>>> Stashed changes
         lista3.append(fila)
     cursor.close()
     db.close()
@@ -428,7 +511,11 @@ def consultarMiembro(id,idC,idCu,idCi):
                            idC=idC,idCu=idCu,idCi=idCi,user=session.get('user'))
 @app.route('/editarClienteCultivo',methods=['POST'])
 def editarClienteCultivo():
+<<<<<<< Updated upstream
     cc = ClienteCultivo(request.form['idClienteCultivo'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+=======
+    cc = ClienteCultivo(request.form['id'],request.form['extension'],request.form['ubicacion'],request.form['idCliente'],
+>>>>>>> Stashed changes
                 request.form['idCultivo'],request.form['idCiudad'],'A')
     ccdao = ClientesCultivosDAO()
     ccdao.actualizar(cc)
@@ -438,6 +525,138 @@ def eliminarClienteCultivo(id):
     ccdao = ClientesCultivosDAO()
     ccdao.eliminar(id)
     return redirect(url_for('clientesCultivos'))
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+@app.route('/ofertas')
+def ofertas():
+    odao = OfertasDAO()
+    lista = odao.obtenerOfertas()
+    return render_template('Ventas/Ofertas.html', ofertas=lista, user=session.get('user'))
+@app.route('/nuevaOferta')
+def nuevaOferta():
+    odao = OfertasDAO()
+    id = odao.ultimoID()
+    conx = Conexion()
+    db = conx.getDB()
+    lista = []
+    sql = 'select idProducto,nombre from Compras.Productos'
+    cursor = db.cursor()
+    cursor.execute(sql);
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id":dato[0],"nombre":dato[1]}
+        lista.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Insertar/agregarOferta.html', id=id,productos=lista, user=session.get('user'))
+@app.route('/agregarOferta',methods=['POST'])
+def agregarOferta():
+    o = Oferta(request.form['id'],request.form['nombre'],request.form['descripcion'],request.form['descuento'],
+                request.form['fechaInicio'],request.form['fechaFin'],request.form['canMinProducto'],'A',request.form['producto'])
+    odao = OfertasDAO()
+    odao.insertarOferta(o)
+    return redirect(url_for('ofertas'))
+@app.route('/consultarOferta/<id>/<idP>')
+def consultarOferta(id,idP):
+    odao = OfertasDAO()
+    o=odao.consultaIndividual(id)
+    conx = Conexion()
+    db = conx.getDB()
+    lista = []
+    sql = 'select idProducto,nombre from Compras.Productos'
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Editar/editarOferta.html',oferta=o,productos=lista,idP=idP,user=session.get('user'))
+@app.route('/editarOferta',methods=['POST'])
+def editarOferta():
+    o = Oferta(request.form['id'],request.form['nombre'],request.form['descripcion'],request.form['descuento'],
+                request.form['fechaInicio'],request.form['fechaFin'],request.form['canMinProducto'],'A',request.form['producto'])
+    odao = OfertasDAO()
+    odao.actualizar(o)
+    return redirect(url_for('ofertas'))
+@app.route('/eliminarOferta/<id>')
+def eliminarOferta(id):
+    odao = OfertasDAO()
+    odao.eliminar(id)
+    return redirect(url_for('ofertas'))
+@app.route('/ofertasAsociacion')
+def ofertasAsociacion():
+    oadao = OfertasAsociacionDAO()
+    lista = oadao.obtenerOfertasAsociacion()
+    return render_template('Ventas/OfertasAsociacion.html', aos=lista, user=session.get('user'))
+@app.route('/nuevaOfertaAsociacion')
+def nuevoOfertaAsociacion():
+    mdao = MiembrosDAO()
+    conx = Conexion()
+    db = conx.getDB()
+    lista1 = []
+    lista2 = []
+    sql = "select idAsociacion,nombre from Ventas.Asociaciones where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": dato[0], "nombre": dato[1]}
+        lista1.append(fila)
+    sql = "select idOferta,nombre from Ventas.Ofertas where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": dato[0], "nombre": dato[1]}
+        lista2.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Insertar/agregarOfertaAsociacion.html',asociaciones=lista1,ofertas=lista2,user=session.get('user'))
+@app.route('/agregarOfertaAsociacion',methods=['POST'])
+def agregarOfertaAsociacion():
+    oa = OfertaAsociacion(request.form['asociacion'],request.form['oferta'],'A')
+    oadao = OfertasAsociacionDAO()
+    oadao.insertarOfertaAsociacion(oa)
+    return redirect(url_for('ofertasAsociacion'))
+@app.route('/consultarOfertaAsociacion/<idA>/<idO>')
+def consultarOfertaAsociacion(idA,idO):
+    oadao = OfertasAsociacionDAO()
+    oa=oadao.consultaIndividual(idA,idO)
+    conx = Conexion()
+    db = conx.getDB()
+    lista1 = []
+    lista2 = []
+    sql = "select idAsociacion,nombre from Ventas.Asociaciones where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista1.append(fila)
+    sql = "select idOferta,nombre from Ventas.Ofertas where estatus='A'"
+    cursor = db.cursor()
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    for dato in data:
+        fila = {"id": str(dato[0]), "nombre": dato[1]}
+        lista2.append(fila)
+    cursor.close()
+    db.close()
+    return render_template('Ventas/Editar/editarOfertaAsociacion.html',oa=oa,asociaciones=lista1,idA=idA,idO=idO,ofertas=lista2,user=session.get('user'))
+@app.route('/editarOfertaAsociacion/<idA>/<idO>',methods=['POST'])
+def actualizarOfertaAsociacion(idA,idO):
+    oa = OfertaAsociacion(request.form['asociacion'],request.form['oferta'],'A')
+    oadao = OfertasAsociacionDAO()
+    oadao.actualizar(oa,idA,idO)
+    return redirect(url_for('ofertasAsociacion'))
+@app.route('/eliminarOfertaAsociacion/<idA>/<idO>')
+def eliminarOfertaAsociacion(idA,idO):
+    oadao = OfertasAsociacionDAO()
+    oadao.eliminar(idA,idO)
+    return redirect(url_for('ofertasAsociacion'))
 >>>>>>> Stashed changes
 
 if __name__=='__main__':

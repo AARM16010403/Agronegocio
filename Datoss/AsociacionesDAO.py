@@ -84,11 +84,15 @@ class AsociacionesDAO:
         except pyodbc.Error as e:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             print(e)
 =======
             print(e)
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+            print(e)
+>>>>>>> Stashed changes
 =======
             print(e)
 >>>>>>> Stashed changes

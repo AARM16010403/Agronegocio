@@ -1,0 +1,42 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-sm-3 col-xs-4"></div>
+        <div class="col-md-6 col-sm-6 col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="/agregarOfertaAsociacion" class="form-container" method="post">
+                        <center>
+                            <img src="{{url_for('static',filename='imagenes/asale.png')}}">
+                            <h4>Agregar Oferta de Asociaciones:</h4>
+                        </center>
+                        <div class="form-group">
+                            <label style="color: white; font-weight: bold; background: black;">Asociacion:</label>
+                            <select required name="asociacion">
+                                {%for asociacion in asociaciones%}
+                                <option value="{{asociacion.id}}">
+                                    {{asociacion.nombre}}
+                                </option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: white; font-weight: bold; background: black;">Oferta:</label>
+                            <select required name="oferta">
+                                {%for oferta in ofertas%}
+                                <option value="{{oferta.id}}">
+                                    {{oferta.nombre}}
+                                </option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit" style="margin-top: 1vh">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-4"></div>
+    </div>
+</div>
+{% endblock %}

@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="164dffed-2ca6-49a5-8346-121315501891" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Agro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agro.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/Datoss/Conexion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Datoss/Conexion.py" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Base/base.html" afterDir="false" />
@@ -11,8 +17,11 @@
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -180,6 +189,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Tablas" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
@@ -197,6 +207,8 @@
 <<<<<<< Updated upstream
 =======
 >>>>>>> d070e01b60ecf41de2efd276acde0aac9b6a9dc0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

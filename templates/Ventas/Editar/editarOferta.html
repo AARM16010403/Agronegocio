@@ -1,0 +1,102 @@
+{%extends 'Base/base.html' %}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <form class="form-container" action="/editarOferta" method="post">
+                <center>
+                    <img src="{{url_for('static',filename='imagenes/sale.png')}}">
+                    <h4>Editar oferta:</h4>
+                </center>
+                <div class="form-group">
+                    <label style="color: white; font-weight: bold; background: black;">ID:</label>
+                    <input type="number" class="form-control" placeholder="Id" required name="id" readonly
+                           value="{{oferta.idOferta}}">
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Nombre:</span>
+                    <input type="text" class="form-control" placeholder="Nombre"
+                           required name="nombre" maxlength="50" value="{{oferta.nombre}}">
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Descripcion:</span>
+                    <input type="text" class="form-control" placeholder="Descripcion"
+                           required name="descripcion" maxlength="100" value="{{oferta.descripcion}}">
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Descuento:</span>
+                    <input type="number" class="form-control" placeholder="Descuento"
+                           required name="descuento" value="{{oferta.porDescuento}}">
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Fecha de inicio:</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" required name='fechaInicio'/>
+                            <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+
+
+
+                    </script>
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Fecha Final:</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' class="form-control" required name='fechaFin'/>
+                            <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker2').datetimepicker();
+                                });
+
+
+
+                    </script>
+                </div>
+                <div class="form-group">
+                    <span class="label label-default" style="font-size: 15px;">Cantidad minima de producto:</span>
+                    <input type="number" class="form-control" placeholder="Cantidad minima de producto" required
+                           name="canMinProducto" value="{{oferta.canMinProducto}}">
+                </div>
+                <div class="form-group">
+                    <label style="color: white; font-weight: bold; background: black;">Producto:</label>
+                    <select required name="producto">
+                        {%for producto in productos%}
+                        {% if idP == producto.id %}
+                        <option selected value="{{producto.id}}">
+                            {{producto.nombre}}
+                        </option>
+                        {% endif %}
+                        {% if idP != producto.id %}
+                        <option value="{{producto.id}}">
+                            {{producto.nombre}}
+                        </option>
+                        {% endif %}
+                        {%endfor%}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Agregar</button>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+</div>
+{% endblock %}
