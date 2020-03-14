@@ -61,6 +61,7 @@ def ventas():
 def cultivos():
     cdao = CultivosDAO()
     lista = cdao.obtenerCultivos()
+    print(type(lista))
     return render_template('Ventas/Cultivos.html', cultivos=lista, user=session.get('user'))
 @app.route('/nuevoCultivo')
 def nuevocultivo():

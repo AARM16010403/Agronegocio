@@ -12,18 +12,16 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Costo de asesoria</th>
-
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="body">
                 {%for cultivo in cultivos%}
                 <tr>
                     <th scope="row">{{cultivo.id}}</th>
                     <td>{{cultivo.nombre}}</td>
                     <td>{{cultivo.costoAsesoria}}</td>
-
                     <td><a href="/consultarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
                     <td><a href="/eliminarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
                 </tr>

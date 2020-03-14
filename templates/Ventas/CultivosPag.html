@@ -1,0 +1,9 @@
+{%for cultivo in cultivos%}
+                <tr>
+                    <th scope="row">{{cultivo.id}}</th>
+                    <td>{{cultivo.nombre}}</td>
+                    <td>{{cultivo.costoAsesoria}}</td>
+                    <td><a href="/consultarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/pencil.png')}}"></a></td>
+                    <td><a href="/eliminarCultivo/{{cultivo.id}}"><img src="{{url_for('static',filename='imagenes/remove.png')}}"></a></td>
+                </tr>
+                {%endfor%}
